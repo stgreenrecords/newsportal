@@ -1,5 +1,5 @@
 <h1>Hello from header</h1>
-<sly data-sly-use.navigation="com.open.core.core.models.NavigationModel"></sly>
+<sly data-sly-use.navigation="com.open.core.models.NavigationModel"></sly>
 <nav>
     <sly data-sly-list.childPage="${navigation.childPages}">
         <a href="${childPage.path}.html">${childPage.title}</a>

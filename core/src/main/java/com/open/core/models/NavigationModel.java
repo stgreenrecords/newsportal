@@ -44,16 +44,16 @@ public class NavigationModel {
     @SlingObject
     private ResourceResolver resourceResolver;
 
-    private List<Page> childPages = new ArrayList<>();
+    private List<Page> childPages;
 
     @PostConstruct
     protected void init() {
-      childPages=  Optional.ofNullable(resourceResolver.adaptTo(PageManager.class))
-                .map(pageManager -> pageManager.getContainingPage(navigationResource))
-                .map(page -> page.listChildren(filterChildPage()))
-                .map(converIteratorToStream())
-                .orElse(Stream.empty())
-                .collect(Collectors.toList());
+      childPages = Optional.ofNullable(resourceResolver.adaptTo(PageManager.class))
+              .map(pageManager -> pageManager.getContainingPage(navigationResource))
+              .map(page -> page.listChildren(filterChildPage()))
+              .map(converIteratorToStream())
+              .orElse(Stream.empty())
+              .collect(Collectors.toList());
     }
 
     public List<Page> getChildPages() {
