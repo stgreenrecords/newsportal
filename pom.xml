@@ -21,7 +21,7 @@
     <groupId>newsportal</groupId>
     <artifactId>com.newsportal</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.0</version>
+    <version>1.0.0-SNAPSHOT</version>
     <description>newportal-core</description>
 
     <modules>

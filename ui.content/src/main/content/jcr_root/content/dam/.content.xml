@@ -1,7 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:rep="internal"
-    jcr:mixinTypes="[mix:lockable,rep:AccessControllable]"
-    jcr:primaryType="sling:OrderedFolder">
-    <rep:policy/>
-    <__contentFolderName__/>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:dam="http://www.day.com/dam/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:rep="internal"
+    jcr:mixinTypes="[rep:AccessControllable]"
+    jcr:primaryType="sling:Folder">
+    <dam:batch
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="asset/batch"/>
+    <jcr:content
+        cq:allowedTemplates="[/libs/dam/templates/assetshare,/libs/dam/templates/asseteditor]"
+        jcr:primaryType="nt:unstructured"
+        jcr:title="Assets"/>
+    <assetinsights jcr:primaryType="nt:unstructured">
+        <embedcode
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="dam/components/assetinsights/embedcode"/>
+        <pagetracker
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="dam/components/assetinsights/pagetracker"/>
+    </assetinsights>
+    <collections
+        jcr:mixinTypes="[rep:AccessControllable]"
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="dam/collection">
+        <public
+            jcr:mixinTypes="[rep:AccessControllable]"
+            jcr:primaryType="nt:unstructured">
+            <rep:policy/>
+        </public>
+        <rep:policy/>
+    </collections>
 </jcr:root>

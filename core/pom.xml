@@ -20,7 +20,7 @@
     <parent>
         <groupId>newsportal</groupId>
         <artifactId>com.newsportal</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <artifactId>com.newsportal.core</artifactId>
@@ -65,7 +65,7 @@
                             *
                         </Import-Package>
                         <Sling-Model-Packages>
-                            com.open.core.core
+                            com.open.core
                         </Sling-Model-Packages>
                         <_dsannotations>*</_dsannotations>
                         <_metatypeannotations>*</_metatypeannotations>
