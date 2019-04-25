@@ -1,0 +1,39 @@
+.header{
+    background:#FFFAF0;
+    height:100px;
+    }
+
+.logo {
+    float:left;
+    width:20%;
+}
+
+.items{
+    float:left;
+    width:60%;
+    }
+
+.sign{
+    padding-top:2%;
+    font-size:110%;
+    float:right;
+    width:20%;
+        }
+
+#imglogo {
+    width:110px;
+    height:50px;
+    float:right;
+    padding-top:7%;
+    }
+#signbutton{
+      float:right;
+      height:auto;
+      margin-right:15%;
+    }
+ul{
+        display: inline-block;
+        list-style-type: none;
+        padding-right: 10px;
+        margin-right:10%;
+    }

@@ -53,7 +53,7 @@ public class HelloWorldModel {
         PageManager pageManager = resourceResolver.adaptTo(PageManager.class);
         Page currentPage = pageManager.getContainingPage(currentResource);
 
-        message = "\tHello World!\n"
+        message = "\tHello World change deploy!\n"
             + "\tThis is instance: " + settings.getSlingId() + "\n"
             + "\tResource type is: " + resourceType + "\n"
             + "\tCurrent page is: " + (currentPage != null ? currentPage.getPath() : "") + "\n";

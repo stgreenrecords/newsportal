@@ -23,10 +23,11 @@ import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.injectorspecific.Self;
 import org.apache.sling.models.annotations.injectorspecific.SlingObject;
+import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
 import javax.annotation.PostConstruct;
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
@@ -38,7 +39,12 @@ import java.util.stream.Stream;
 @Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class NavigationModel {
 
-    @SlingObject
+
+
+    @ValueMapValue
+    private String navigationRootPath;
+
+    @Self
     private Resource navigationResource;
 
     @SlingObject
@@ -49,7 +55,7 @@ public class NavigationModel {
     @PostConstruct
     protected void init() {
       childPages = Optional.ofNullable(resourceResolver.adaptTo(PageManager.class))
-              .map(pageManager -> pageManager.getContainingPage(navigationResource))
+              .map(pageManager -> pageManager.getPage(navigationRootPath))
               .map(page -> page.listChildren(filterChildPage()))
               .map(converIteratorToStream())
               .orElse(Stream.empty())
@@ -72,4 +78,7 @@ public class NavigationModel {
         return iterator -> new StreamProvider().getStreamFromIterator(iterator);
     }
 
+    public String getNavigationRootPath() {
+        return navigationRootPath;
+    }
 }
