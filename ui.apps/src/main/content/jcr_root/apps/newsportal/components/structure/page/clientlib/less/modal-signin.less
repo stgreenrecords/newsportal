@@ -13,16 +13,30 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-(function ($) {
-    var $body = $("body"),
-        $topAnchor = $("a[href='#top']");
 
-    if($body.length > 0 && $topAnchor.length > 0) {
-        $topAnchor.on("click", function (e) {
-            e.preventDefault();
-            // enable top link also in preview mode
-            // see https://bugzilla.mozilla.org/show_bug.cgi?id=638598
-            $body[0].scrollIntoView(true);
-        });
+@import (reference) "/apps/weretail/clientlibs/common/variables.less";
+
+.we-SignInModal {
+    text-align: center;
+
+    &-form {
+        border-bottom: 1px solid rgb(229, 229, 229);
+        margin-bottom: 2rem;
     }
-})(jQuery);
+
+    .modal-dialog {
+        width: 90%;
+    }
+
+
+    // Scale up the modal
+    @media (min-width: @screen-sm-min) {
+        .modal-dialog {
+            width: 400px;
+        }
+
+        .modal-body {
+            padding: 15px 50px;
+        }
+    }
+}

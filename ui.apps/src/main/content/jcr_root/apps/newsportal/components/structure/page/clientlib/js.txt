@@ -16,4 +16,6 @@
 
 #base=js
 
-footer.js
+modal-search.js
+subitems.js
+utilities.js

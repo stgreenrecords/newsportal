@@ -1,35 +1,34 @@
-<!-- Social Icons - Start -->
-<div class="footer">
-    <div class="copyright">
-        Copyright
-    </div>
-
-    <div class="links">
-        <sly data-sly-list.children="${resource.listChildren}">
+<footer>
+   <div class="footer_content">
+      <div class="copyright">
+         Copyright
+      </div>
+      <div class="links">
+         <sly data-sly-list.children="${resource.listChildren}">
             <sly data-sly-test="${children.name == 'usefulLink' && children.hasChildren}">
-                <sly data-sly-list.socialIcon="${children.listChildren}">
-                    <a x-cq-linkchecker="skip" href="${socialIcon.redirectLinkTarget}"
-                       target="_blank">${socialIcon.alt}</a>
-                </sly>
+               <sly data-sly-list.socialIcon="${children.listChildren}">
+                  <a class="footer_link_item" x-cq-linkchecker="skip" href="${socialIcon.redirectLinkTarget}"
+                     target="_blank">${socialIcon.alt}</a>
+               </sly>
             </sly>
-        </sly>
-    </div>
-
-    <div class="icons">
-        <sly data-sly-list.children="${resource.listChildren}">
+         </sly>
+      </div>
+      <div class="icons">
+         <sly data-sly-list.children="${resource.listChildren}">
             <sly data-sly-test="${children.name == 'socialIcons' && children.hasChildren}">
-                <sly data-sly-list.socialIcon="${children.listChildren}">
-                    <sly data-sly-test="${socialIcon.redirectSocialTarget}">
-                        <a x-cq-linkchecker="skip" href="${socialIcon.redirectSocialTarget}" target="_blank"
-                          ><img src="${socialIcon.socialIconReference}" ></a>
-                    </sly>
-                </sly>
+               <sly data-sly-list.socialIcon="${children.listChildren}">
+                  <sly data-sly-test="${socialIcon.redirectSocialTarget}">
+                     <a x-cq-linkchecker="skip" href="${socialIcon.redirectSocialTarget}" target="_blank"
+                        ><img class="icon_img" src="${socialIcon.socialIconReference}" ></a>
+                  </sly>
+               </sly>
             </sly>
-        </sly>
-    </div>
+         </sly>
+      </div>
+   </div>
+</footer>
 
 
-</div>
 
-<!-- Social Icons - End -->
+
 
