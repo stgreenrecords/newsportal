@@ -13,7 +13,7 @@
         <items jcr:primaryType="nt:unstructured">
             <linkSection
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Choose"
+                jcr:title="Page"
                 sling:resourceType="granite/ui/components/foundation/section">
                 <layout
                     jcr:primaryType="nt:unstructured"
