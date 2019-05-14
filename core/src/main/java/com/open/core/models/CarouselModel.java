@@ -7,6 +7,7 @@ import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.ChildResource;
 import org.apache.sling.models.annotations.injectorspecific.Self;
 import org.apache.sling.models.annotations.injectorspecific.SlingObject;
+import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
 import javax.annotation.PostConstruct;
 import java.util.Arrays;
@@ -29,12 +30,15 @@ public class CarouselModel {
     @ChildResource
     private String[] pathToNewsPage;
 
+    @ValueMapValue
+    private long numberOfPages;
+
     @PostConstruct
     protected void init(){
         topNews = Arrays.stream(pathToNewsPage).map(path -> resourceResolver.getResource(path))
                 .map(resource -> resource.adaptTo(NewsPageModel.class))
                 .sorted(Comparator.comparingInt(NewsPageModel::getLikes).reversed())
-                .limit(2)
+                .limit(numberOfPages)
                 .collect(toList());
     }
 
