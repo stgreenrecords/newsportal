@@ -57,7 +57,7 @@ public class NavigationModel {
       childPages = Optional.ofNullable(resourceResolver.adaptTo(PageManager.class))
               .map(pageManager -> pageManager.getPage(navigationRootPath))
               .map(page -> page.listChildren(filterChildPage()))
-              .map(converIteratorToStream())
+              .map(convertIteratorToStream())
               .orElse(Stream.empty())
               .collect(Collectors.toList());
     }
@@ -74,7 +74,7 @@ public class NavigationModel {
         return page -> !page.isHideInNav();
     }
 
-    private Function<Iterator<Page>, Stream<Page>> converIteratorToStream(){
+    private Function<Iterator<Page>, Stream<Page>> convertIteratorToStream(){
         return iterator -> new StreamProvider().getStreamFromIterator(iterator);
     }
 
