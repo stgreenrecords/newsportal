@@ -20,16 +20,14 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>newsportal</groupId>
     <artifactId>com.newsportal</artifactId>
+    <version>${revision}</version>
     <packaging>pom</packaging>
-    <version>1.0.0-SNAPSHOT</version>
     <description>newportal-core</description>
 
     <modules>
         <module>core</module>
         <module>ui.apps</module>
         <module>ui.content</module>
-        <module>it.tests</module>
-        <module>it.launcher</module>
     </modules>
 
     <properties>
@@ -41,7 +39,7 @@
         <sling.password>admin</sling.password>
         <vault.user>admin</vault.user>
         <vault.password>admin</vault.password>
-
+        <revision>1.0.0-SNAPSHOT</revision>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
