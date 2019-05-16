@@ -1,0 +1,20 @@
+<sly data-sly-use.navigation="com.open.core.models.NavigationModel"></sly>
+<header>
+   <div class="header_content">
+      <div class="logo_container">
+         <img class="imglogo" src="${properties.fileReference}">
+      </div>
+      <nav class="top_navigation">
+         <ul class="top_navigation_row">
+            <sly data-sly-list.childPage="${navigation.childPages}">
+               <li class="top_navigation_item">
+                  <a class="top_navigation_item_link" href  ="${childPage.path}.html">${childPage.title} </a>
+               </li>
+            </sly>
+         </ul>
+      </nav>
+      <div class="sign">
+         <a class="signbutton" href="https://www.google.com/" onclick="" >Sign in</a>
+      </div>
+   </div>
+</header>

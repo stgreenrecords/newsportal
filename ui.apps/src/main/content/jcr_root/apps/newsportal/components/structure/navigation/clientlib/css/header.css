@@ -1,0 +1,51 @@
+.navigation, header{
+height:80px;
+}
+
+.header_content{
+     position:relative;
+ display:flex;
+     align-items:center;
+     height:100%;
+     max-width:70rem;
+     margin:0px auto;
+}
+ .logo_container{
+     flex-direction:row;
+     margin-right:0px;
+}
+ .imglogo{
+     width:90px;
+     height:50px;
+}
+ .top_navigation{
+     margin:0px auto;
+}
+ .top_navigation_row{
+ display:flex;
+     width:auto;
+}
+ .top_navigation_item{
+ display:flex;
+     align-items:center;
+}
+ .top_navigation_item_link{
+     font:0.9rem "Source Sans Pro", "Hiragino Sans GB", "Microsoft JhengHei", arial, helvetica, sans-serif;
+     letter-spacing:0.085rem;
+     text-transform:uppercase;
+     font-weight:bold;
+     text-decoration:none;
+     min-width:7rem;
+     color:black;
+}
+ .sign{
+      display:flex;
+     border:1px solid black;
+     padding:5px;
+}
+ .signbutton{
+     font:900 0.8rem "museo-sans", "source-han-sans-simplified-c", "Source Sans Pro", arial, helvetica, sans-serif;
+     letter-spacing:2px;
+     text-decoration:none;
+     color:black;
+}
