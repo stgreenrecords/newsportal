@@ -34,7 +34,8 @@
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/foundation/form/datepicker"
                                 fieldLabel="Start date"
-                                name="./date"/>
+                                name="./dateOfArticle"/>
+                            <field
                             <field
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/foundation/form/numberfield"
