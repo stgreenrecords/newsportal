@@ -1,5 +1,7 @@
 package com.open.core.models;
 
+import com.open.core.util.StreamProvider;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
@@ -8,11 +10,10 @@ import org.apache.sling.models.annotations.injectorspecific.ChildResource;
 import org.apache.sling.models.annotations.injectorspecific.Self;
 import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
-
-import javax.annotation.PostConstruct;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+import javax.jcr.query.Query;
+import java.text.SimpleDateFormat;
+import java.util.*;
+import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toList;
 
@@ -20,6 +21,9 @@ import static java.util.stream.Collectors.toList;
 public class CarouselModel {
 
     private List<NewsPageModel> topNews;
+
+    private static final String QUERY = "SELECT * FROM [nt:base] AS node WHERE ISDESCENDANTNODE(node,'%s') AND node.[jcr:created] > CAST('%s' AS DATE) ORDER BY node.[likes] desc ";
+    private static final String DATE_PATTERN = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX";
 
     @Self
     private Resource carouselResource;
@@ -33,16 +37,41 @@ public class CarouselModel {
     @ValueMapValue
     private long numberOfPages;
 
-    @PostConstruct
-    protected void init(){
-        topNews = Arrays.stream(pathToNewsPage).map(path -> resourceResolver.getResource(path))
+    @ValueMapValue
+    private String pathToNewsRoot;
+
+    @ValueMapValue
+    private Calendar dateOfArticle;
+
+    private List<NewsPageModel> createListFromPathToNewsRootProperty() {
+        return Optional.ofNullable(pathToNewsRoot)
+                .map(path -> resourceResolver.findResources(String.format(QUERY, path, dateParser()), Query.JCR_SQL2))
+                .map(iterator -> new StreamProvider().getStreamFromIterator(iterator))
+                .orElse(Stream.empty())
                 .map(resource -> resource.adaptTo(NewsPageModel.class))
-                .sorted(Comparator.comparingInt(NewsPageModel::getLikes).reversed())
                 .limit(numberOfPages)
                 .collect(toList());
     }
 
-    public List<NewsPageModel> getTopNews() {
-        return topNews;
+    private List<NewsPageModel> createListFromPathToNewsPageProperty() {
+        return Optional.ofNullable(pathToNewsPage)
+                .map(path -> Arrays.stream(path))
+                .orElse(Stream.empty())
+                .map(path -> resourceResolver.getResource(path))
+                .map(resource -> resource.adaptTo(NewsPageModel.class))
+                .collect(toList());
     }
+
+    public List<NewsPageModel> getTopNews() {
+        return Stream.of(createListFromPathToNewsPageProperty(), createListFromPathToNewsRootProperty())
+                .flatMap(Collection::stream)
+                .collect(toList());
+    }
+
+    private String dateParser() {
+        return Optional.ofNullable(dateOfArticle)
+                .map(dateOfArticle -> new SimpleDateFormat(DATE_PATTERN).format(dateOfArticle.getTime()))
+                .orElse(StringUtils.EMPTY);
+    }
+
 }
