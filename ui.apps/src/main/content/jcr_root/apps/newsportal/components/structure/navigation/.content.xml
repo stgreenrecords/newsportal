@@ -2,4 +2,5 @@
 <jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
     jcr:description="Page header with navigation and toolbar"
     jcr:primaryType="cq:Component"
-    jcr:title="Navigation Header"/>
+    componentGroup=".hidden"
+    jcr:title="News Portal Page Navigation"/>
