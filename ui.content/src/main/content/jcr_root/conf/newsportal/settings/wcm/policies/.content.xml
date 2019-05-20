@@ -12,7 +12,7 @@
                         jcr:primaryType="nt:unstructured"
                         jcr:title="News Portal Default"
                         sling:resourceType="wcm/core/components/policy/policy"
-                        components="[group:newsportal,/apps/newsportal/components/form/container]"
+                        components="[group:newsportal,group:General]"
                         policyResourceType="wcm/foundation/components/responsivegrid">
                         <cq:authoring jcr:primaryType="nt:unstructured">
                             <assetToComponentMapping jcr:primaryType="nt:unstructured">
@@ -33,35 +33,4 @@
             </components>
         </foundation>
     </wcm>
-    <newsportal jcr:primaryType="nt:unstructured">
-        <components jcr:primaryType="nt:unstructured">
-            <form jcr:primaryType="nt:unstructured">
-                <container jcr:primaryType="nt:unstructured">
-                    <form-container
-                        jcr:primaryType="nt:unstructured"
-                        jcr:title="News Portal Form"
-                        sling:resourceType="wcm/core/components/policy/policy"
-                        components="[/apps/newsportal/components/form/button,/apps/newsportal/components/form/hidden,/apps/newsportal/components/form/options,/apps/newsportal/components/form/text]">
-                        <jcr:content jcr:primaryType="nt:unstructured"/>
-                    </form-container>
-                </container>
-            </form>
-            <content jcr:primaryType="nt:unstructured">
-                <carousel jcr:primaryType="nt:unstructured">
-                    <policy_1557134287603
-                        jcr:lastModified="{Date}2019-05-06T12:02:44.692+02:00"
-                        jcr:lastModifiedBy="admin"
-                        jcr:primaryType="nt:unstructured"
-                        jcr:title="carousel"
-                        sling:resourceType="wcm/core/components/policy/policy"
-                        autopauseDisabled="false"
-                        autoplay="false"
-                        components="group:We.Retail"
-                        delay="5000">
-                        <jcr:content jcr:primaryType="nt:unstructured"/>
-                    </policy_1557134287603>
-                </carousel>
-            </content>
-        </components>
-    </newsportal>
 </jcr:root>
