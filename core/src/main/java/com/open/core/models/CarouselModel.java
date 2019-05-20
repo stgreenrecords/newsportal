@@ -22,8 +22,8 @@ public class CarouselModel {
 
     private List<NewsPageModel> topNews;
 
-    private static final String QUERY = "SELECT * FROM [nt:base] AS s WHERE ISDESCENDANTNODE(s,'%s') AND s.[jcr:created] > CAST('%sT02:30:00.000+02:00' AS DATE) ORDER BY s.[likes] desc ";
-    private static final String DATE_PATTERN = "yyyy-MM-dd";
+    private static final String QUERY = "SELECT * FROM [nt:base] AS node WHERE ISDESCENDANTNODE(node,'%s') AND node.[jcr:created] > CAST('%s' AS DATE) ORDER BY node.[likes] desc ";
+    private static final String DATE_PATTERN = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX";
 
     @Self
     private Resource carouselResource;
