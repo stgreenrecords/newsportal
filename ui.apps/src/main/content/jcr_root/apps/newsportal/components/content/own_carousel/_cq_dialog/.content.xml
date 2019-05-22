@@ -36,7 +36,6 @@
                                 fieldLabel="Start date"
                                 name="./dateOfArticle"/>
                             <field
-                            <field
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/foundation/form/numberfield"
                                 fieldLabel="Number of pages"
