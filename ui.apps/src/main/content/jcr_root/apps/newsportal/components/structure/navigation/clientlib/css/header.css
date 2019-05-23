@@ -24,10 +24,10 @@ height:80px;
  .top_navigation_row{
  display:flex;
      width:auto;
+     list-style:none;
 }
  .top_navigation_item{
- display:flex;
-     align-items:center;
+    padding-left:70px;
 }
  .top_navigation_item_link{
      font:0.9rem "Source Sans Pro", "Hiragino Sans GB", "Microsoft JhengHei", arial, helvetica, sans-serif;
