@@ -3,8 +3,6 @@
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:deviceGroups="[/etc/mobile/groups/responsive]"
-        cq:lastModified="{Date}2019-05-20T08:54:55.360+02:00"
-        cq:lastModifiedBy="admin"
         cq:template="/conf/newsportal/settings/wcm/templates/news-template"
         jcr:primaryType="cq:PageContent"
         sling:resourceType="newsportal/components/structure/page">
@@ -15,44 +13,29 @@
             jcr:lastModifiedBy="admin"
             jcr:primaryType="nt:unstructured"
             sling:resourceType="newsportal/components/structure/navigation"/>
-        <root
-            jcr:primaryType="nt:unstructured"
-            sling:resourceType="wcm/foundation/components/responsivegrid">
-            <text_on_hero_image
-                jcr:created="{Date}2019-05-20T08:47:26.189+02:00"
-                jcr:createdBy="admin"
-                jcr:lastModified="{Date}2019-05-20T08:47:26.189+02:00"
-                jcr:lastModifiedBy="admin"
+        <text_on_hero_image
+                editable="Boolean{true}"
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="newsportal/components/content/text-on-hero-image"/>
-            <contentfragment
-                jcr:created="{Date}2019-05-20T08:50:46.284+02:00"
-                jcr:createdBy="admin"
-                jcr:lastModified="{Date}2019-05-20T08:50:46.284+02:00"
-                jcr:lastModifiedBy="admin"
+        <contentfragment
+                editable="Boolean{true}"
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="dam/cfm/components/contentfragment"
                 text=""/>
-            <comments_and_likes_379776137
-                jcr:created="{Date}2019-05-20T08:52:19.323+02:00"
-                jcr:createdBy="admin"
-                jcr:lastModified="{Date}2019-05-20T08:52:19.323+02:00"
-                jcr:lastModifiedBy="admin"
+        <comments_and_likes_379776137
+                editable="Boolean{true}"
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="newsportal/components/content/comments-and-likes"/>
-            <related_news
-                jcr:created="{Date}2019-05-20T08:48:27.878+02:00"
-                jcr:createdBy="admin"
-                jcr:lastModified="{Date}2019-05-20T08:48:27.878+02:00"
-                jcr:lastModifiedBy="admin"
+        <related_news
+                editable="Boolean{true}"
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="newsportal/components/content/related-news"/>
+        <root
+                editable="Boolean{true}"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wcm/foundation/components/responsivegrid">
         </root>
         <footer
-            jcr:created="{Date}2016-01-13T15:58:16.080+01:00"
-            jcr:createdBy="admin"
-            jcr:lastModified="{Date}2016-01-13T15:58:16.080+01:00"
-            jcr:lastModifiedBy="admin"
             jcr:primaryType="nt:unstructured"
             sling:resourceType="newsportal/components/structure/footer"/>
         <cq:responsive jcr:primaryType="nt:unstructured">

@@ -8,6 +8,19 @@
         <header
             jcr:primaryType="nt:unstructured"
             sling:resourceType="newsportal/components/structure/navigation"/>
+        <text_on_hero_image
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="newsportal/components/content/text-on-hero-image"/>
+        <contentfragment
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="dam/cfm/components/contentfragment"
+                text=""/>
+        <comments_and_likes_379776137
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="newsportal/components/content/comments-and-likes"/>
+        <related_news
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="newsportal/components/content/related-news"/>
         <root
             jcr:primaryType="nt:unstructured"
             sling:resourceType="wcm/foundation/components/responsivegrid"/>
