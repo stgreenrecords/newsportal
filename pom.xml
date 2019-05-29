@@ -33,7 +33,7 @@
     <properties>
         <aem.host.production.author>ecsc00a04f15.epam.com</aem.host.production.author>
         <aem.port.production.author>4502</aem.port.production.author>
-        <aem.host.production.publish>ecsc00a04f15.epam.com</aem.host.production.publish>
+        <aem.host.production.publish>ecsc00a04f16.epam.com</aem.host.production.publish>
         <aem.port.production.publish>4503</aem.port.production.publish>
         <aem.host>localhost</aem.host>
         <aem.port>4502</aem.port>
