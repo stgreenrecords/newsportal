@@ -31,6 +31,10 @@
     </modules>
 
     <properties>
+        <aem.host.production.author>ecsc00a04f15.epam.com</aem.host.production.author>
+        <aem.port.production.author>4502</aem.port.production.author>
+        <aem.host.production.publish>ecsc00a04f15.epam.com</aem.host.production.publish>
+        <aem.port.production.publish>4503</aem.port.production.publish>
         <aem.host>localhost</aem.host>
         <aem.port>4502</aem.port>
         <aem.publish.host>localhost</aem.publish.host>
@@ -398,6 +402,87 @@
                 </pluginManagement>
             </build>
         </profile>
+
+        <profile>
+            <id>autoInstallPackageProductionAuthor</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <build>
+                <pluginManagement>
+                    <plugins>
+                        <plugin>
+                            <groupId>org.apache.jackrabbit</groupId>
+                            <artifactId>filevault-package-maven-plugin</artifactId>
+                            <executions>
+                                <execution>
+                                    <id>create-package</id>
+                                    <goals>
+                                        <goal>package</goal>
+                                    </goals>
+                                </execution>
+                            </executions>
+                        </plugin>
+                        <plugin>
+                            <groupId>com.day.jcr.vault</groupId>
+                            <artifactId>content-package-maven-plugin</artifactId>
+                            <executions>
+                                <execution>
+                                    <id>install-package</id>
+                                    <goals>
+                                        <goal>install</goal>
+                                    </goals>
+                                    <configuration>
+                                        <targetURL>http://${aem.host.production.author}:${aem.port.production.author}/crx/packmgr/service.jsp</targetURL>
+                                    </configuration>
+                                </execution>
+                            </executions>
+                        </plugin>
+                    </plugins>
+                </pluginManagement>
+            </build>
+        </profile>
+
+        <profile>
+            <id>autoInstallPackageProductionPublish</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <build>
+                <pluginManagement>
+                    <plugins>
+                        <plugin>
+                            <groupId>org.apache.jackrabbit</groupId>
+                            <artifactId>filevault-package-maven-plugin</artifactId>
+                            <executions>
+                                <execution>
+                                    <id>create-package</id>
+                                    <goals>
+                                        <goal>package</goal>
+                                    </goals>
+                                </execution>
+                            </executions>
+                        </plugin>
+                        <plugin>
+                            <groupId>com.day.jcr.vault</groupId>
+                            <artifactId>content-package-maven-plugin</artifactId>
+                            <executions>
+                                <execution>
+                                    <id>install-package</id>
+                                    <goals>
+                                        <goal>install</goal>
+                                    </goals>
+                                    <configuration>
+                                        <targetURL>http://${aem.host.production.publish}:${aem.port.production.publish}/crx/packmgr/service.jsp</targetURL>
+                                    </configuration>
+                                </execution>
+                            </executions>
+                        </plugin>
+                    </plugins>
+                </pluginManagement>
+            </build>
+        </profile>
+
 
         <profile>
             <id>autoInstallPackage</id>
